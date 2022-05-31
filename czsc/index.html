@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>操作手册</title>
+  <!-- 引入样式 -->
+  <link href="https://lib.baomitu.com/element-ui/2.15.7/theme-chalk/index.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <el-row type="flex" justify="center">
+      <el-col :span="14">
+        <el-tabs v-model="tabAction" type="card">
+          <el-tab-pane name="first">
+            <span slot="label"><i class="el-icon-view"></i> 登录模块</span>
+            <div>
+              <el-form>
+                <el-form-item label="登录类型">
+                  <el-radio v-for="item in logTypes" v-model="login" :label="item.id" @change="resetLogin"
+                    :key="item.id">
+                    {{item.name}}
+                  </el-radio>
+                </el-form-item>
+                <el-form-item v-if="login===1" label="网站地址">
+                  <el-input v-model="webLink" placeholder="网站地址" key="webLink"></el-input>
+                </el-form-item>
+                <el-form-item v-if="login===2" label="客户端名称">
+                  <el-input v-model="appName" placeholder="客户端名称" key="appName"></el-input>
+                </el-form-item>
+                <el-form-item v-if="login===3" label="小程序名称">
+                  <el-input v-model="wxName" placeholder="小程序名称" key="wxName"></el-input>
+                </el-form-item>
+                <el-form-item label="密码类型">
+                  <el-radio v-for="item in pwdTypes" v-model="pwd" :label="item.value" @change="resetPwd"
+                    :key="item.id">
+                    {{item.name}}
+                  </el-radio>
+                </el-form-item>
+                <el-descriptions class="margin-top" title="" :column="3" border>
+                  <el-descriptions-item>
+                    <template slot="label">
+                      登录结果
+                    </template>
+                    <clogins :cweblink="webLink" :cappname="appName" :cwxname="wxName" :cpwd="pwd" id="clogin">
+                    </clogins>
+
+                  </el-descriptions-item>
+                </el-descriptions>
+                <el-button round size="small" id="copyBtn" @click="clickCopyBtn($event)"
+                  data-clipboard-target="#clogin">
+                  复制结果
+                </el-button>
+              </el-form>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="second">
+            <span slot="label"><i class="el-icon-notebook-1"></i> 菜单模块</span>
+            <div>
+              <el-form>
+                <el-form-item label="菜单名称">
+                  <el-input v-model="menuname" placeholder="菜单名称"></el-input>
+                </el-form-item>
+                <el-form-item label="基本信息是否与菜单名称相同">
+                  <el-switch v-model="descChecked" @change="resetDesc(descChecked)"></el-switch>
+                </el-form-item>
+                <el-form-item v-if="descChecked" label="基本信息">
+                  <el-input type="textarea" placeholder="基本信息" v-model="describe" :rows="5" cols="50">
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="是否包含搜索功能">
+                  <el-switch v-model="searchChecked" @change="resetSearch(searchChecked)"></el-switch>
+                </el-form-item>
+                <el-form-item v-if="searchChecked" label="搜索信息">
+                  <el-input type="textarea" placeholder="搜索信息" v-model="searchText" :rows="5" cols="50">
+                  </el-input>
+                </el-form-item>
+                <el-descriptions class="margin-top" title="" :column="3" border>
+                  <el-descriptions-item>
+                    <template slot="label">
+                      信息结果
+                    </template>
+                    <cmenus :name="menuname" :stext="searchText" :desc="describe" id="cmenu"></cmenus>
+                  </el-descriptions-item>
+                </el-descriptions>
+                <el-button round size="small" id="copyBtn" @click="clickCopyBtn($event)" data-clipboard-target="#cmenu">
+                  复制结果
+                </el-button>
+              </el-form>
+            </div>
+            <div>
+              <p>例如：【菜单名称】展示了【】的基本信息，可以进行【】的操作，还可以通过【】来进行快速搜索</p>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="按钮模块" name="third">
+            <span slot="label"><i class="el-icon-postcard"></i> 按钮模块</span>
+            <div>
+              按钮类型：
+              <el-select v-model="selected" placeholder="请选择">
+                <el-option v-for="item in btns" :value="item.value" :key="item.value">{{item.text}}</el-option>
+              </el-select>
+              <el-descriptions class="margin-top" title="" :column="3" border>
+                <el-descriptions-item>
+                  <template slot="label">
+                    按钮结果
+                  </template>
+                  <div id="cbtn">{{selected}}</div>
+                </el-descriptions-item>
+              </el-descriptions>
+              <el-button round size="small" id="copyBtn" @click="clickCopyBtn($event)" data-clipboard-target="#cbtn">
+                复制结果
+              </el-button>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+      </el-col>
+    </el-row>
+  </div>
+
+  <template id="menus">
+    <div>
+      {{lianText(name,desc,stext)}}
+    </div>
+  </template>
+  <template id="clogins">
+    <div>
+      {{linkText(cweblink,cappname,cwxname,cpwd)}}
+    </div>
+  </template>
+
+  <!-- <template id="buttons">
+    <div>
+      <p v-for="item in cbtns">{{item}}</p>
+    </div>
+  </template> -->
+</body>
+<script crossorigin="anonymous"
+  integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=="
+  src="https://lib.baomitu.com/vue/2.6.14/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://lib.baomitu.com/element-ui/2.15.7/index.js"></script>
+<script src="./js/child.js"></script>
+<script src="./js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+</html>
