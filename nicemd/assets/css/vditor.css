@@ -10,10 +10,15 @@
 
 .vditor-reset a {
     /*color: rgb(99, 141, 213);*/
+    color: #42b983;
 }
 
 .vditor-reset p {
     margin: 20px;
+}
+
+.vditor-reset code {
+    color: #e96900;
 }
 
 section {
@@ -94,7 +99,8 @@ section {
 }
 
 strong {
-    background: linear-gradient(to right, rgb(166, 189, 231), rgb(127, 164, 230));
+    /* background: linear-gradient(to right, rgb(166, 189, 231), rgb(127, 164, 230)); */
+    background: linear-gradient(to right, rgb(63, 219, 148), rgb(66, 185, 131));
     color: white;
     white-space: pre-wrap;
     border-width: 0.25em 0;
@@ -114,7 +120,8 @@ li::marker {
     content: '“';
     left: 12px;
     top: 0;
-    color: rgb(143, 173, 225);
+    /* color: rgb(143, 173, 225); */
+    color: rgb(66, 185, 131);
     font-size: 2em;
     font-family: Arial, serif;
     line-height: 1em;
