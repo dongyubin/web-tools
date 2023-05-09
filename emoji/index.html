@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文武科技柜-表情包合集</title>
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon"/>
+    <meta name="author" content="程序小黑">
+    <meta name="keywords" content="表情包合集,程序小黑">
+    <meta name="description" content="全面表情包">
+</head>
+
+<!--<link href="./css/style.css" rel="stylesheet" type="text/css" />
+ <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.css">
+<link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css"> -->
+<link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.13/theme-chalk/index.min.css" rel="stylesheet">
+<style>
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+</style>
+
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <!--<div class="container">
+     <ul id="myTab" class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#alu" data-bs-toggle="tab">阿鲁表情包</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#tieba" data-bs-toggle="tab">贴吧表情包</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#weibo" data-bs-toggle="tab">微博表情包</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#weisuomeng" data-bs-toggle="tab">猥琐萌表情包</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#menhera" data-bs-toggle="tab">menhera表情包（中文版）</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#xiaoyingwu" data-bs-toggle="tab">小鹦鹉表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#ac" data-bs-toggle="tab">AC娘表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#xiaochunjie" data-bs-toggle="tab">小纯洁表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#wangdan" data-bs-toggle="tab">汪蛋表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#gaoguai" data-bs-toggle="tab">搞怪表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#aodamiao" data-bs-toggle="tab">嗷大喵表情包</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#zhuazi" data-bs-toggle="tab">爪子表情包</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#bison" data-bs-toggle="tab">Bison 仓鼠</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#dmxr" data-bs-toggle="tab">呆萌小人</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#doge" data-bs-toggle="tab">doge</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#qlhtqb" data-bs-toggle="tab">七濑胡桃 Q 版</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#tyemoji" data-bs-toggle="tab">涂鸦 Emoji</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#bzhan" data-bs-toggle="tab">B站</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#kuan" data-bs-toggle="tab">酷安</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade show active" id="alu">
+            <h3 class="text-center">阿鲁表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-hover">
+                <tbody id="tbMain1"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="tieba">
+            <h3 class="text-center">贴吧表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain2"></tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="weibo">
+            <h3 class="text-center">微博表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain3"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="weisuomeng">
+            <h3 class="text-center">猥琐萌表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain4"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="menhera">
+            <h3 class="text-center">menhera表情包（中文版）</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain5"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="xiaoyingwu">
+            <h3 class="text-center">小鹦鹉表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered text-nowrap">
+                <tbody id="tbMain6"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="ac">
+            <h3 class="text-center">AC娘表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain7"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="xiaochunjie">
+            <h3 class="text-center">小纯洁表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain8"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="wangdan">
+            <h3 class="text-center">汪蛋表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain9"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="gaoguai">
+            <h3 class="text-center">搞怪表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain10"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="aodamiao">
+            <h3 class="text-center">嗷大喵表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain11"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="zhuazi">
+            <h3 class="text-center">爪子表情包</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain12"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="bison">
+            <h3 class="text-center">Bison 仓鼠</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain13"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="dmxr">
+            <h3 class="text-center">呆萌小人</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain14"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="doge">
+            <h3 class="text-center">doge</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain15"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="qlhtqb">
+            <h3 class="text-center">七濑胡桃 Q 版</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain16"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="tyemoji">
+            <h3 class="text-center">涂鸦 Emoji</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain17"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="bzhan">
+            <h3 class="text-center">B站</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain18"></tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="kuan">
+            <h3 class="text-center">酷安</h3>
+            <table width="600" border="1" cellspacing="0" class="table table-bordered">
+                <tbody id="tbMain19"></tbody>
+            </table>
+        </div>
+    </div> -->
+    <div id="app">
+        
+        <el-container>
+            <el-header>
+                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                    <el-submenu index="1">
+                        <template slot="title">表情包合集1</template>
+                        <el-menu-item index="alu">阿鲁表情包</el-menu-item>
+                        <el-menu-item index="tieba">贴吧表情包</el-menu-item>
+                        <el-menu-item index="weibo">微博表情包</el-menu-item>
+                        <el-menu-item index="weisuomeng">猥琐萌表情包</el-menu-item>
+                        <el-menu-item index="menhera">menhera表情包（中文版）</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">表情包合集2</template>
+                        <el-menu-item index="xiaoyingwu">小鹦鹉表情包</el-menu-item>
+                        <el-menu-item index="ac">AC娘表情包</el-menu-item>
+                        <el-menu-item index="xiaochunjie">小纯洁表情包</el-menu-item>
+                        <el-menu-item index="wangdan">汪蛋表情包</el-menu-item>
+                        <el-menu-item index="gaoguai">搞怪表情包</el-menu-item>
+                    </el-submenu>
+                    
+                    <el-menu-item index="aodamiao">嗷大喵表情包</el-menu-item>
+                    <el-menu-item index="zhuazi">爪子表情包</el-menu-item>
+                    <el-menu-item index="bison">Bison 仓鼠</el-menu-item>
+                    <el-menu-item index="dmxr">呆萌小人</el-menu-item>
+                    <el-menu-item index="doge">doge</el-menu-item>
+                    <el-menu-item index="qlhtqb">七濑胡桃 Q 版</el-menu-item>
+                    <el-menu-item index="tyemoji">涂鸦 Emoji</el-menu-item>
+                    <el-menu-item index="bzhan">B站</el-menu-item>
+                    <el-menu-item index="kuan">酷安</el-menu-item>
+                  </el-menu>
+            </el-header>
+            <el-main>
+                <el-table
+                    :data="tableData"
+                    style="width: 100%">
+                    <el-table-column
+                        prop="name"
+                        label="名称"
+                        width="180">
+                    </el-table-column>
+                    <el-table-column
+                        label="图片"
+                        width="180">
+                        <template slot-scope="scope">            
+                            <img :src="scope.row.src"  min-width="50" height="50" />
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                    label="操作"
+                    width="200">
+                    <template slot-scope="scope">
+                        <button type="text" size="small" @click="handleButtonClick(scope.row)">复制</button>
+                        <button type="text" size="small" @click="handleButtonMarkdownClick(scope.row)">复制Markdown</button>
+                    </template>
+                    </el-table-column>
+                    </el-table>
+            </el-main>
+        </el-container>
+    </div>
+</div>
+
+</body>
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+<script src="https://clipboardjs.com/dist/clipboard.min.js"></script> -->
+<!-- <script src="./js/biaoqingbao.js"></script> -->
+<!-- <script src="https://clipboardjs.com/dist/clipboard.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.13/index.min.js"></script>>
+<script src="js/data.js"></script>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+</html>

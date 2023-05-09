@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://www.wangdu.site/wp-content/uploads/2021/08/favicon.png" />
+  <meta name="description" content="写作,导航" />
+  <title>阿斌的写作导航页</title>
+  <style>
+    .el-badge__content.is-fixed {
+      width: 20px;
+      height: 30px;
+      border-radius: 67px;
+      left: -46px;
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+<link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.13/theme-chalk/index.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="root">
+    <el-container>
+      <el-main>
+        <el-row type="flex" justify="space-around">
+          <el-col :span="4" v-for="item in apps" :key="item.title" v-cloak>
+            <div style="margin-top: 20px;">
+              <el-badge :value="item.sortId" class="item" :type="item.sortId | filterType">
+                <el-card class="box-card" shadow="hover">
+                  <div slot="header" class="clearfix">
+                    <el-link :href="item.link" target="_blank" :type="item.sortId | filterType" style="font-size: 20px;">{{item.title}}
+                    </el-link>
+                  </div>
+                  <div class="text item">
+                    {{item.introduce}}
+                  </div>
+                </el-card>
+              </el-badge>
+            </div>
+          </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
+    
+  </div>
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.13/index.min.js"></script>
+<script>
+  const appLists = [
+    { sortId: 1, title: '微信排版(自)', introduce: '排版工具', link: './nicemd/index.html'},
+    { sortId: 1, title: '文武微信排版(自)', introduce: '排版工具', link: 'https://md.wangdu.site/'},
+    { sortId: 1, title: '表情包（自）', introduce: '文章内容', link: './emoji/index.html' },
+    { sortId: 1, title: '码途编辑器', introduce: '排版工具', link: 'https://markdown.devtool.tech/app' },
+    { sortId: 3, title: '操作手册(自)', introduce: '文档编写', link: './czsc/index.html' },
+    { sortId: 1, title: '☂开发工具', introduce: '软件开发', link: './code/index.html' },
+  ];
+  const colorStyles = ['primary','success','danger']
+
+  
+  new Vue({
+    el: '#root',
+    data: {
+      apps: appLists,
+    },
+    filters: {
+      filterType(val) {
+        return colorStyles[val-1];
+      }
+    },
+  });
+</script>
+
+</html>
